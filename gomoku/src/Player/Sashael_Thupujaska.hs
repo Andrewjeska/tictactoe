@@ -12,4 +12,4 @@ getNextMove :: Tile -> Board -> IO Move
 getNextMove t b =
 	case b of
 		((x,y), EmptyTile):t -> (x,y)
-		h:t -> getNextMove t t
+		h:rest -> getNextMove t rest
