@@ -8,8 +8,8 @@ teamMembers = "Michael Anderjaska and Sashank Thupukari"
 playerSashael_Thupujaska :: Player
 playerSashael_Thupujaska = Player getNextMove "Sashael_Thupujaska"
 
-getNextMove :: Tile -> Board -> IO Move
-getNextMove t b =
-	case b of
-		((x,y), EmptyTile):t -> (x,y)
-		h:rest -> getNextMove t rest
+getNextMove :: Tile -> Board -> IO (Int, Int)
+getNextMove t b = 
+    case b of
+        ((x, y), EmptyTile):xs -> return (x,y)
+        _:xs -> getNextMove t xs
